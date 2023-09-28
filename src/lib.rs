@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet, HashSet};
 
-#[derive(Debug)]
+#[derive(Debug, Hash, PartialEq, Eq)]
 pub struct Graph {
     /// adjacency list?
     adj: BTreeMap<usize, BTreeSet<usize>>,
@@ -61,5 +61,9 @@ impl Graph {
 
     pub fn neighbors(&self, node: &usize) -> impl Iterator<Item = &usize> {
         self.adj[node].iter()
+    }
+
+    pub fn is_isomorphic(&self, _other: &Self) -> bool {
+        todo!();
     }
 }
